@@ -8,12 +8,12 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mydatabase
     ports:
-      - "3306:3306"
+      - "3307:3306"    # ← Change 3306 en 3307
     volumes:
       - db_data:/var/lib/mysql
 
   php:
-    image: php:8.2-fpm
+    build: .
     container_name: php-1
     volumes:
       - ./www:/var/www/html
